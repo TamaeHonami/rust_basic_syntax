@@ -146,7 +146,7 @@ fn add(x: i32, y: i32) -> i32 {
 }
 ```
 
-**注意: 式の終端にセミコロン(;)が付くと文として扱われる!!**
+**注意: 式の終端にセミコロン(;)が付くと文として扱われる!!**  
 
 Rustは式指向言語のため, こういうこともできる.  
 
@@ -156,6 +156,151 @@ fn main() {
     let y = 1;
     y + 1
   };
+}
+```
+
+### Comment
+
+Rustでのコメントの仕方は次の通り.  
+
+- ラインコメント
+
+```
+// コメント
+fn main() {
+  // コメント
+  println!("Hello, world!"); // コメント
+}
+```
+
+- ブロックコメント
+
+```
+fn main() {
+  let x: i32 = 32;
+  /* "ブロックコメント開始"
+  let y: i32 = 32;
+  let z: i32 = 32;
+  "ブロックコメント終了" */
+  println!("{}", x);
+}
+```
+
+- 内部ドキュメントコメント
+
+```
+mod foo {
+  //! 内部コメント1
+  //! 内部コメント2
+  //! 内部コメント3
+  struct Bar {
+    pub baz: i32
+  }
+}
+```
+
+- 外部ドキュメントコメント
+
+```
+/// 外部コメント1
+/// 外部コメント2
+/// 外部コメント3
+pub enum Result {
+  Success,
+  Warning,
+  Failure(Error)
+}
+```
+
+**耳寄り情報: ドキュメントコメントはマークダウンがサポートされている.**  
+下記のコマンドでドキュメントを出力できる.  
+
+```
+$ cargo doc
+```
+
+### Control flow
+
+フローの制御方法について記載する.  
+
+#### 分岐処理
+
+- if
+
+```
+fn main() {
+  let condition: bool = true;
+  if condition {
+    println!("true");
+  } else {
+    println!("false");
+  }
+}
+```
+
+```
+fn main() {
+  let number: i32 = 0;
+  if number == 0 {
+    println!("number is zero.");
+  } else if number == 1 {
+    println!("number is one.");
+  } else {
+    println!("other number.");
+  }
+}
+```
+
+```
+fn main() {
+  let condition: bool = true;
+  let number: i32 = if condition {
+    0
+  } else {
+    1
+  };
+}
+```
+
+#### 繰返し処理
+
+- loop
+
+```
+fn main() {
+  loop {
+    println!("loop!!");
+  }
+}
+```
+
+- while
+
+```
+fn main() {
+  let mut count: i32 = 0;
+  while count <= 3 {
+    println!("{}", count);
+    number = number + 1;
+  }
+}
+```
+
+- for
+
+```
+fn main() {
+  let arr = [0, 1, 2, 3, 4, 5];
+
+  let mut index: i32 = 0;
+  while index <= 5 {
+    println!("{}", arr[index]);
+    index = index + 1;
+  }
+
+  for element in arr.iter() {
+    println!("{}", element);
+  }
 }
 ```
 
