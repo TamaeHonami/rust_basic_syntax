@@ -1,3 +1,9 @@
+struct User {
+  first_name: String,
+  family_name: String,
+  age: u8,
+}
+
 fn main() {
   let x_i32: i32 = 1;
   let y_i32: i32 = -1;
@@ -62,6 +68,19 @@ fn main() {
   for elem in arr_slice.iter() {
     println!("{}", elem);
   }
+
+  let tama: User = User {
+    first_name: String::from("Tamae"),
+    family_name: String::from("Honami"),
+    age: 12,
+  };
+  println!("{} {} ({})", tama.first_name, tama.family_name, tama.age);
+
+  let father: User = User {
+    first_name: String::from("Shintarou"),
+    ..tama
+  };
+  println!("{} {} ({})", father.first_name, father.family_name, father.age);
 }
 
 fn add(x: i32, y: i32) -> i32 {

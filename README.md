@@ -396,6 +396,68 @@ fn change(s: &mut String) {
 特定のスコープにおいて, ある特定のデータに対し, 1つしか可変な参照は持てない.  
 データ競合を起こさないために, この制約が存在する.  
 
+### Struct
+
+構造体についてまとめる.  
+構造体は複数の関連あるデータ型を一つにまとめて定義することができる機能のこと.  
+
+構造体の定義
+
+```
+struct User {
+  first_name: String,
+  family_name: String,
+  age: u8,
+}
+
+fn main() {
+  let user: User = User {
+    first_name: String::from("Tamae"),
+    family_name: String::from("Honami"),
+    age: 12,
+  };
+
+  println!("{} {} ({})", user.first_name, user.family_name, user.age);
+}
+```
+
+構造体更新記法
+
+```
+struct User {
+  first_name: String,
+  family_name: String,
+  age: u8,
+}
+
+fn main() {
+  let user1: User = User {
+    first_name: String::from("Tamae"),
+    family_name: String::from("Honami"),
+    age: 12,
+  };
+
+  let user2: User = User {
+    first_name: String::from("Shintarou"),
+    ..user1
+  };
+
+  println!("{} {} ({})", user2.first_name, user2.family_name, user2.age);
+}
+```
+
+タプル構造体
+
+```
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
+let black: Color = Color(0, 0, 0);
+let origin: Point = Point(0, 0, 0);
+```
+
+ユニット様構造体というのもあるとのこと.  
+その他, 所有権に関しては後述する.  
 
 ## Extra
 
