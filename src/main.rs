@@ -22,7 +22,7 @@ impl Rectangle {
 
   // Associated Functions
   fn square(size: u32) -> Rectangle {
-    Rectangle { width: size, height: size}
+    Rectangle { width: size, height: size }
   }
 }
 
