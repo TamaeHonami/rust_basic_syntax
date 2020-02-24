@@ -459,7 +459,7 @@ let origin: Point = Point(0, 0, 0);
 ユニット様構造体というのもあるとのこと.  
 その他, 所有権に関しては後述する.  
 
-Example
+構造体の例)
 
 ```
 #[derive(Debug)]
@@ -473,11 +473,53 @@ fn area(rect: &Rectagle) -> u32 {
 }
 
 fn main() {
-  let rect: Rectangle = Rectangle {width: 30, height: 50};
+  let rect: Rectangle = Rectangle { width: 30, height: 50 };
   println!("{:#?}", rect);
   
   let pixel: u32 = area(&rect);
   println!("{}", pixel);
+}
+```
+
+メソッドの定義)
+
+```
+#[derive(Debug)]
+struct Rectangle {
+  width: u32,
+  height: u32,
+}
+
+impl Rectangle {
+  fn area(&self) -> u32 {
+    self.width * self.height
+  }
+
+  // More parameter
+  fn can_hold(&self, other: &Rectangle) -> bool {
+    self.width > other.width && self.height > other.height
+  }
+
+  // Associated Functions
+  fn square(size: u32) -> Rectangle {
+    Rectangle { width: size, height: size}
+  }
+}
+
+// multi impl
+impl Rectangle {
+  fn meaningless(&self) {
+    self.width * self.height
+  }
+}
+
+fn main() {
+  let rect1: Rectangle = Rectangle { width: 30, height: 50 };
+  println!("{:#?}", rect1);
+  println!("{}", rect1.area());
+
+  let rect2: Rectangle = Rectangle::square(20);
+  println!("{}", rect1.can_hold(rect2));
 }
 ```
 

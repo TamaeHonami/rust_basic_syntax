@@ -10,6 +10,22 @@ struct Rectangle {
   height: u32,
 }
 
+impl Rectangle {
+  fn area(&self) -> u32 {
+    self.width * self.height
+  }
+
+  // More parameter
+  fn can_hold(&self, other: &Rectangle) -> bool {
+    self.width > other.width && self.height > other.height
+  }
+
+  // Associated Functions
+  fn square(size: u32) -> Rectangle {
+    Rectangle { width: size, height: size}
+  }
+}
+
 fn main() {
   let x_i32: i32 = 1;
   let y_i32: i32 = -1;
@@ -88,11 +104,12 @@ fn main() {
   };
   println!("{} {} ({})", father.first_name, father.family_name, father.age);
 
-  let rect: Rectangle = Rectangle {width: 30, height: 50};
-  println!("{:#?}", rect);
+  let rect1: Rectangle = Rectangle { width: 30, height: 50 };
+  println!("{:#?}", rect1);
+  println!("{}", rect1.area());
 
-  let pixel: u32 = area(&rect);
-  println!("{}", pixel);
+  let rect2: Rectangle = Rectangle::square(20);
+  println!("{}", rect1.can_hold(&rect2));
 }
 
 fn add(x: i32, y: i32) -> i32 {
@@ -116,8 +133,4 @@ fn first_word(s: &str) -> &str {
     }
   }
   &s[..]
-}
-
-fn area(rect: &Rectangle) -> u32 {
-  rect.width * rect.height
 }
