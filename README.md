@@ -459,6 +459,28 @@ let origin: Point = Point(0, 0, 0);
 ユニット様構造体というのもあるとのこと.  
 その他, 所有権に関しては後述する.  
 
+Example
+
+```
+#[derive(Debug)]
+struct Rectangle {
+  width: u32,
+  height: u32,
+}
+
+fn area(rect: &Rectagle) -> u32 {
+  rect.width * rect.height
+}
+
+fn main() {
+  let rect: Rectangle = Rectangle {width: 30, height: 50};
+  println!("{:#?}", rect);
+  
+  let pixel: u32 = area(&rect);
+  println!("{}", pixel);
+}
+```
+
 ## Extra
 
 ### Stringと文字列リテラルについてのメモ

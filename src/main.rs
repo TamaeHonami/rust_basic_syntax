@@ -4,6 +4,12 @@ struct User {
   age: u8,
 }
 
+#[derive(Debug)]
+struct Rectangle {
+  width: u32,
+  height: u32,
+}
+
 fn main() {
   let x_i32: i32 = 1;
   let y_i32: i32 = -1;
@@ -81,6 +87,12 @@ fn main() {
     ..tama
   };
   println!("{} {} ({})", father.first_name, father.family_name, father.age);
+
+  let rect: Rectangle = Rectangle {width: 30, height: 50};
+  println!("{:#?}", rect);
+
+  let pixel: u32 = area(&rect);
+  println!("{}", pixel);
 }
 
 fn add(x: i32, y: i32) -> i32 {
@@ -104,4 +116,8 @@ fn first_word(s: &str) -> &str {
     }
   }
   &s[..]
+}
+
+fn area(rect: &Rectangle) -> u32 {
+  rect.width * rect.height
 }
