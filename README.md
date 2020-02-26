@@ -523,6 +523,62 @@ fn main() {
 }
 ```
 
+### Enum
+
+列挙型の定義.  
+
+```
+enum IpAddrKind {
+  V4,
+  V6,
+}
+
+fn main() {
+  let ipv4: IpAddrKind = IpAddrKind::V4;
+  let ipv6: IpAddrKind = IpAddrKind::V6;
+}
+```
+
+```
+enum IpAddrKind {
+  V4(u8, u8, u8, u8),
+  V6(String),
+}
+
+fn main() {
+  let ipv4_localhost: IpAddrKind = IpAddrKind::V4(127, 0, 0, 1);
+  let ipv6_loopback: IpAddrKind = IpAddrKind::V6(String::from("::1"));
+}
+```
+
+構造体と同じくメソッドを定義することができる.  
+
+- Option
+
+RustにNullはない.  
+その代わり `Option` がある.  
+下記の列挙型として, 標準ライブラリに定義されている.  
+
+```
+enum Option<T> {
+  Some(T),
+  None,
+}
+```
+
+`<T>` の部分はジェネリック.  
+
+こんな感じに使う.  
+
+```
+let some_number = Some(32);
+let absent_number: Option<i32> = None;
+```
+
+Optionを使うことにより, コードの安全性がNullを使う場合より向上する.  
+T型の値を取り出す方法は, Optionに定義されているメソッドを利用するとのこと.  
+[公式ドキュメント](https://doc.rust-lang.org/stable/std/option/enum.Option.html)  
+
 ## Extra
 
 ### Stringと文字列リテラルについてのメモ
@@ -570,4 +626,5 @@ fn main() {
 
 ## Reference
 
-
+Option 公式ドキュメント  
+- https://doc.rust-lang.org/stable/std/option/enum.Option.html

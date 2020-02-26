@@ -26,6 +26,18 @@ impl Rectangle {
   }
 }
 
+#[derive(Debug)]
+enum IpAddrKind {
+  V4(u8, u8, u8, u8),
+  V6(String),
+}
+
+impl IpAddrKind {
+  fn notmeaning(&self) {
+    println!("{:?}", self);
+  }
+}
+
 fn main() {
   let x_i32: i32 = 1;
   let y_i32: i32 = -1;
@@ -110,6 +122,16 @@ fn main() {
 
   let rect2: Rectangle = Rectangle::square(20);
   println!("{}", rect1.can_hold(&rect2));
+
+  let ipv4_localhost: IpAddrKind = IpAddrKind::V4(127, 0, 0, 1);
+  ipv4_localhost.notmeaning();
+  let ipv6_loopback: IpAddrKind = IpAddrKind::V6(String::from("::1"));
+  ipv6_loopback.notmeaning();
+
+  let some_number = Some(32);
+  let none_number: Option<i32> = None;
+  println!("{:?}", some_number);
+  println!("{:?}", none_number);
 }
 
 fn add(x: i32, y: i32) -> i32 {
