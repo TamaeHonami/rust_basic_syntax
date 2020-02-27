@@ -38,6 +38,13 @@ impl IpAddrKind {
   }
 }
 
+enum Coin {
+  Penny,
+  Nickel,
+  Dime,
+  Quarter,
+}
+
 fn main() {
   let x_i32: i32 = 1;
   let y_i32: i32 = -1;
@@ -132,6 +139,11 @@ fn main() {
   let none_number: Option<i32> = None;
   println!("{:?}", some_number);
   println!("{:?}", none_number);
+
+  println!("{}", value_in_cents(Coin::Penny));
+  println!("{}", value_in_cents(Coin::Nickel));
+  println!("{}", value_in_cents(Coin::Dime));
+  println!("{}", value_in_cents(Coin::Quarter));
 }
 
 fn add(x: i32, y: i32) -> i32 {
@@ -155,4 +167,13 @@ fn first_word(s: &str) -> &str {
     }
   }
   &s[..]
+}
+
+fn value_in_cents(coin: Coin) -> u32 {
+  match coin {
+    Coin::Penny => 1,
+    Coin::Nickel => 5,
+    Coin::Dime => 10,
+    Coin::Quarter => 25,
+  }
 }

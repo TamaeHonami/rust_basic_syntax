@@ -579,6 +579,35 @@ Optionを使うことにより, コードの安全性がNullを使う場合よ�
 T型の値を取り出す方法は, Optionに定義されているメソッドを利用するとのこと.  
 [公式ドキュメント](https://doc.rust-lang.org/stable/std/option/enum.Option.html)  
 
+### match
+
+match制御フロー演算子の定義方法.  
+
+```
+enum Coin {
+  Penny,
+  Nickel,
+  Dime,
+  Quarter,
+}
+
+fn main() {
+  println!("{}", value_in_cents(Coin::Penny));
+  println!("{}", value_in_cents(Coin::Nickel));
+  println!("{}", value_in_cents(Coin::Dime));
+  println!("{}", value_in_cents(Coin::Quarter));
+}
+
+fn value_in_cents(coin: Coin) -> u32 {
+  match coin {
+    Coin::Penny => 1,
+    Coin::Nickel => 5,
+    Coin::Dime => 10,
+    Coin::Quarter => 25,
+  }
+}
+```
+
 ## Extra
 
 ### Stringと文字列リテラルについてのメモ
