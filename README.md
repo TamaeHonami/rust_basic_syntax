@@ -608,11 +608,13 @@ fn main() {
 fn value_in_cents(coin: Coin) -> u32 {
   match coin {
     Coin::Penny => 1,
-    Coin::Nickel => 5,
-    Coin::Dime => 10,
     Coin::Quarter(state) => {
       println!("{:?}", state);
       25
+    },
+    _ => {
+      println!("Other coin.");
+      0
     },
   }
 }
@@ -660,6 +662,23 @@ fn first_word(s: &str) -> &str {
 fn main() {
   let arr: [i32; 5] = [1, 2, 3, 4, 5];
   let slice: &[i32] = &arr[1..3];
+}
+```
+
+### Option<T> and match
+
+```
+fn plus_one(x: Option<i32>) -> Option<i32> {
+  match x {
+    None => None,
+    Some(i) => Some(i + 1),
+  }
+}
+
+fn main() {
+  let five: Option<i32> = Some(5);
+  let six: Option<i32> = plus_one(five);
+  let none: Option<i32> = plus_one(None);
 }
 ```
 

@@ -151,6 +151,10 @@ fn main() {
   println!("{}", value_in_cents(Coin::Dime));
   println!("{}", value_in_cents(Coin::Quarter(UsState::Alabama)));
   println!("{}", value_in_cents(Coin::Quarter(UsState::Alaska)));
+
+  let five: Option<i32> = Some(5);
+  let six: Option<i32> = plus_one(five);
+  println!("{:?}", six);
 }
 
 fn add(x: i32, y: i32) -> i32 {
@@ -182,11 +186,20 @@ fn value_in_cents(coin: Coin) -> u32 {
       println!("Penny");
       1
     },
-    Coin::Nickel => 5,
-    Coin::Dime => 10,
     Coin::Quarter(state) => {
       println!("{:?}", state);
       25
     },
+    _ => {
+      println!("Other coin.");
+      0
+    },
+  }
+}
+
+fn plus_one(x: Option<i32>) -> Option<i32> {
+  match x {
+    None => None,
+    Some(i) => Some(i + 1),
   }
 }
