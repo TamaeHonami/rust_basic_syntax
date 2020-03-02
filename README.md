@@ -620,6 +620,25 @@ fn value_in_cents(coin: Coin) -> u32 {
 }
 ```
 
+### if let
+
+`if let` 記法について.  
+`else` はなくてもよい.  
+
+```
+fn main() {
+  let some_u8_value: Option<u8> = Some(3u8);
+  if let Some(3) = some_u8_value {
+    println!("three");
+  } else {
+    println!("not three");
+  }
+}
+```
+
+`3u8`とか書かれている部分の説明についての参考.  
+[https://stackoverflow.com/questions/53120755/what-does-0u8-mean-in-rust](https://stackoverflow.com/questions/53120755/what-does-0u8-mean-in-rust)  
+
 ## Extra
 
 ### Stringと文字列リテラルについてのメモ

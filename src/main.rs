@@ -155,6 +155,11 @@ fn main() {
   let five: Option<i32> = Some(5);
   let six: Option<i32> = plus_one(five);
   println!("{:?}", six);
+
+  let some_u8_value: Option<u8> = Some(3u8);
+  if let Some(3) = some_u8_value {
+    println!("three");
+  }
 }
 
 fn add(x: i32, y: i32) -> i32 {
