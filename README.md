@@ -639,6 +639,83 @@ fn main() {
 `3u8`とか書かれている部分の説明についての参考.  
 [https://stackoverflow.com/questions/53120755/what-does-0u8-mean-in-rust](https://stackoverflow.com/questions/53120755/what-does-0u8-mean-in-rust)  
 
+### Modules
+
+#### Create library crates
+
+ライブラリクレート用のプロジェクトを作成.  
+
+```
+$ cargo new rust_lib_example --lib
+     Created library `rust_lib_example` package
+$ ls
+rust_lib_example
+$ ls rust_lib_example/
+Cargo.toml	src
+$ ls rust_lib_example/src/
+lib.rs
+```
+
+なにはともあれビルドしてみよう.  
+
+```
+$ cd rust_lib_example
+$ cargo check
+    Checking rust_lib_example v0.1.0 (/path/to/rust_src/rust_lib_example)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.62s
+$ cargo build
+   Compiling rust_lib_example v0.1.0 (/path/to/rust_src/rust_lib_example)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.10s
+```
+
+`src/lib.rs` を下記に修正.  
+
+```
+mod server {
+    fn connect() {
+      println!("Server connect!!");
+    }
+}
+
+mod client {
+  fn connect() {
+    println!("Client connect!!");
+  }
+}
+```
+
+再度ビルドすると警告が出るが, 公開している関数ではなく,
+どこかで呼び出しているわけでもないので警告が出ている.  
+
+注釈: コンパイラは標準では, `src/lib.rs` だけ検索してにいく.  
+
+別々のファイルに分割してみる.  
+
+src/lib.rs
+
+```
+mod server;
+mod client;
+```
+
+src/server.rs
+
+```
+fn connect() {
+  println!("Server connect!!");
+}
+```
+
+src/client.rs
+
+```
+fn connect() {
+  println!("Server connect!!");
+}
+```
+
+再度ビルドし, 警告だけ出ていることを確認.  
+
 ## Extra
 
 ### Stringと文字列リテラルについてのメモ
