@@ -3,4 +3,11 @@
 [[package]]
 name = "basic_syntax"
 version = "0.1.0"
+dependencies = [
+ "rust_lib_example 0.1.0",
+]
+
+[[package]]
+name = "rust_lib_example"
+version = "0.1.0"
 

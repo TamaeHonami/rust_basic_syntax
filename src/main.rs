@@ -1,3 +1,5 @@
+extern crate rust_lib_example;
+
 struct User {
   first_name: String,
   family_name: String,
@@ -160,6 +162,8 @@ fn main() {
   if let Some(3) = some_u8_value {
     println!("three");
   }
+
+  rust_lib_example::nest::nest_module::test_func();
 }
 
 fn add(x: i32, y: i32) -> i32 {
