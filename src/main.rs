@@ -164,6 +164,7 @@ fn main() {
   }
 
   rust_lib_example::nest::nest_module::test_func();
+  rust_lib_example::client::connect();
 }
 
 fn add(x: i32, y: i32) -> i32 {
