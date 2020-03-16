@@ -1,7 +1,5 @@
 extern crate rust_lib_example;
 
-use rust_lib_example::nest::nest_module;
-
 struct User {
   first_name: String,
   family_name: String,
@@ -54,6 +52,9 @@ enum UsState {
   Alabama,
   Alaska,
 }
+
+use Coin::*;
+use rust_lib_example::nest::nest_module;
 
 fn main() {
   let x_i32: i32 = 1;
@@ -168,6 +169,7 @@ fn main() {
   rust_lib_example::nest::nest_module::test_func();
   nest_module::test_func();
   rust_lib_example::client::connect();
+  println!("{}", value_in_cents(Penny));
 }
 
 fn add(x: i32, y: i32) -> i32 {
