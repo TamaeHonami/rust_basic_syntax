@@ -1,5 +1,7 @@
 extern crate rust_lib_example;
 
+use rust_lib_example::nest::nest_module;
+
 struct User {
   first_name: String,
   family_name: String,
@@ -164,6 +166,7 @@ fn main() {
   }
 
   rust_lib_example::nest::nest_module::test_func();
+  nest_module::test_func();
   rust_lib_example::client::connect();
 }
 
