@@ -170,6 +170,16 @@ fn main() {
   nest_module::test_func();
   rust_lib_example::client::connect();
   println!("{}", value_in_cents(Penny));
+
+  let mut v: Vec<i32> = Vec::new();
+  v.push(1);
+  v.push(2);
+  v.push(3);
+  v.push(4);
+  println!("{:?}", v);
+
+  let v2 = vec![5, 6, 7];
+  println!("{:?}", v2);
 }
 
 fn add(x: i32, y: i32) -> i32 {
