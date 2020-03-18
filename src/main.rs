@@ -180,6 +180,11 @@ fn main() {
 
   let v2 = vec![5, 6, 7];
   println!("{:?}", v2);
+
+  let second: &i32 = &v2[1];
+  println!("{}", second);
+  let third: Option<&i32> = v.get(2);
+  println!("{:?}", third);
 }
 
 fn add(x: i32, y: i32) -> i32 {
