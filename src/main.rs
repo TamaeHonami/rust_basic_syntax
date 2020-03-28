@@ -185,6 +185,16 @@ fn main() {
   println!("{}", second);
   let third: Option<&i32> = v.get(2);
   println!("{:?}", third);
+
+  for i in &v {
+    println!("{}", i);
+  }
+
+  let mut v3: Vec<i32> = vec![10, 20, 30, 40];
+  for i in &mut v3 {
+    *i += 50;
+    println!("{}", i);
+  }
 }
 
 fn add(x: i32, y: i32) -> i32 {
