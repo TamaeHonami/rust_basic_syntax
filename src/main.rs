@@ -53,6 +53,13 @@ enum UsState {
   Alaska,
 }
 
+#[derive(Debug)]
+enum SpreadSheetCell {
+  Int(i32),
+  Float(f64),
+  Text(String),
+}
+
 use Coin::*;
 use rust_lib_example::nest::nest_module;
 
@@ -194,6 +201,15 @@ fn main() {
   for i in &mut v3 {
     *i += 50;
     println!("{}", i);
+  }
+
+  let row = vec![
+    SpreadSheetCell::Int(3),
+    SpreadSheetCell::Text(String::from("blue")),
+    SpreadSheetCell::Float(10.12),
+  ];
+  for i in &row {
+    println!("{:?}", i)
   }
 }
 
