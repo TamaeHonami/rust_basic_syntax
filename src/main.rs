@@ -211,6 +211,16 @@ fn main() {
   for i in &row {
     println!("{:?}", i)
   }
+
+  let mut new_str: String = String::new();
+  new_str.push_str("foo");
+  let add_str: &str = "bar";
+  new_str.push_str(add_str);
+  println!("{}", new_str);
+  println!("{}", add_str);
+  let add_str2: String = String::from("foobar2");
+  new_str.push_str(&add_str2);
+  println!("{}", add_str2);
 }
 
 fn add(x: i32, y: i32) -> i32 {
