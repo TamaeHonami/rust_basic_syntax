@@ -221,6 +221,11 @@ fn main() {
   let add_str2: String = String::from("foobar2");
   new_str.push_str(&add_str2);
   println!("{}", add_str2);
+
+  let str1: String = String::from("Hello, ");
+  let str2: String = String::from("World!");
+  let str3: String = str1 + &str2;
+  println!("{}", str3);
 }
 
 fn add(x: i32, y: i32) -> i32 {
