@@ -226,6 +226,12 @@ fn main() {
   let str2: String = String::from("World!");
   let str3: String = str1 + &str2;
   println!("{}", str3);
+
+  let stra: String = String::from("a");
+  let strb: String = String::from("b");
+  let strc: String = String::from("c");
+  let str4: String = format!("{}-{}-{}", stra, strb, strc);
+  println!("{}", str4);
 }
 
 fn add(x: i32, y: i32) -> i32 {
