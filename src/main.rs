@@ -232,6 +232,13 @@ fn main() {
   let strc: String = String::from("c");
   let str4: String = format!("{}-{}-{}", stra, strb, strc);
   println!("{}", str4);
+
+  for c in "hello".chars() {
+    println!("{}", c);
+  }
+  for b in "world".bytes() {
+    println!("{}", b);
+  }
 }
 
 fn add(x: i32, y: i32) -> i32 {
