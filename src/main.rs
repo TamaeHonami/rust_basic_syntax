@@ -62,6 +62,7 @@ enum SpreadSheetCell {
 
 use Coin::*;
 use rust_lib_example::nest::nest_module;
+use std::collections::HashMap;
 
 fn main() {
   let x_i32: i32 = 1;
@@ -239,6 +240,13 @@ fn main() {
   for b in "world".bytes() {
     println!("{}", b);
   }
+
+  let mut scores: HashMap<String, i32> = HashMap::new();
+  scores.insert(String::from("blue"), 10);
+  scores.insert(String::from("red"), 50);
+
+  let map_value: Option<&i32> = scores.get("red");
+  println!("{:?}", map_value);
 }
 
 fn add(x: i32, y: i32) -> i32 {
