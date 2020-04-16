@@ -247,6 +247,10 @@ fn main() {
 
   let map_value: Option<&i32> = scores.get("red");
   println!("{:?}", map_value);
+
+  for (key, value) in scores {
+    println!("{}:{}", key, value);
+  }
 }
 
 fn add(x: i32, y: i32) -> i32 {
