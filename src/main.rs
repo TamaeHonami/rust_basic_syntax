@@ -248,9 +248,25 @@ fn main() {
   let map_value: Option<&i32> = scores.get("red");
   println!("{:?}", map_value);
 
-  for (key, value) in scores {
+  for (key, value) in &scores {
     println!("{}:{}", key, value);
   }
+
+  scores.insert(String::from("blue"), 20);
+  let map_value2: Option<&i32> = scores.get("blue");
+  println!("{:?}", map_value2);
+
+  scores.entry(String::from("yellow")).or_insert(40);
+  scores.entry(String::from("blue")).or_insert(30);
+  println!("{:?}", scores);
+
+  let text: String = String::from("hello world hello foo bar");
+  let mut text_count = HashMap::new();
+  for word in text.split_whitespace() {
+    let count = text_count.entry(word).or_insert(0);
+    *count += 1;
+  }
+  println!("{:?}", text_count);
 }
 
 fn add(x: i32, y: i32) -> i32 {
